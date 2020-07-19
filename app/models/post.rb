@@ -21,7 +21,3 @@ class Post < ActiveRecord::Base
   end
 end
 
-
-posts = Post.by_author(@author.id)
-expect(posts.count).to eq 1
-expect(posts.first.title).to eq("Scary Test")
