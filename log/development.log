@@ -1356,3 +1356,33 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 0.6ms)
 
 
+Started GET "/posts" for 104.54.218.220 at 2020-07-19 07:24:52 +0000
+Cannot render console from 104.54.218.220! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `pry' for #<Binding:0x00007f859d93e9a8>
+Did you mean?  try):
+    4: <div>
+    5:   <h3>Filter posts:</h3>
+    6:   <%= form_tag("/posts", method: "get") do %>
+    7:   <%binding.pry%>
+    8:     <%= select_tag "author", options_from_collection_for_select(Author.all, "id", "name"), include_blank: true %>
+    9:     <%= submit_tag "Filter" %>
+   10:   <% end %>
+  
+app/views/posts/index.html.erb:7:in `block in _app_views_posts_index_html_erb__2278787885057474700_70105925516280'
+app/views/posts/index.html.erb:6:in `_app_views_posts_index_html_erb__2278787885057474700_70105925516280'
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (16.5ms)
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (36.0ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in render_exception_with_web_console at /usr/local/rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/extensions.rb:16)
